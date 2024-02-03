@@ -26,14 +26,14 @@ func (s *Service) GetParamList(gtx context.Context) *httpx.Endpoint {
 	}
 
 	return &httpx.Endpoint{
-		Method:     echo.GET,
-		Path:       "/qctl",
-		Category:   "qtcl",
-		Desc:       "Get parameter list",
-		Version:    "v1",
-		Role:       "",
-		Permission: "",
-		Handler:    handler,
+		Method:      echo.GET,
+		Path:        "/qctl",
+		Category:    "qtcl",
+		Desc:        "Get parameter list",
+		Version:     "v1",
+		Role:        "",
+		Permissions: []string{},
+		Handler:     handler,
 	}
 }
 
@@ -53,14 +53,14 @@ func (s *Service) GetValues(gtx context.Context) *httpx.Endpoint {
 	}
 
 	return &httpx.Endpoint{
-		Method:     echo.GET,
-		Path:       "/qctl/value",
-		Category:   "qtcl",
-		Desc:       "Get all parameter values",
-		Version:    "v1",
-		Role:       "",
-		Permission: "",
-		Handler:    handler,
+		Method:      echo.GET,
+		Path:        "/qctl/value",
+		Category:    "qtcl",
+		Desc:        "Get all parameter values",
+		Version:     "v1",
+		Role:        "",
+		Permissions: []string{},
+		Handler:     handler,
 	}
 }
 
@@ -90,14 +90,14 @@ func (s *Service) GetValue(gtx context.Context) *httpx.Endpoint {
 	}
 
 	return &httpx.Endpoint{
-		Method:     echo.GET,
-		Path:       "/qctl/value/:id",
-		Category:   "qtcl",
-		Desc:       "Get value for a parameter",
-		Version:    "v1",
-		Role:       "",
-		Permission: "",
-		Handler:    handler,
+		Method:      echo.GET,
+		Path:        "/qctl/value/:id",
+		Category:    "qtcl",
+		Desc:        "Get value for a parameter",
+		Version:     "v1",
+		Role:        "",
+		Permissions: []string{},
+		Handler:     handler,
 	}
 }
 
@@ -122,14 +122,14 @@ func (s *Service) GetDefaultValue(gtx context.Context) *httpx.Endpoint {
 	}
 
 	return &httpx.Endpoint{
-		Method:     echo.GET,
-		Path:       "/qctl/value/:id/default",
-		Category:   "qtcl",
-		Desc:       "Get value default for a parameter",
-		Version:    "v1",
-		Role:       "",
-		Permission: "",
-		Handler:    handler,
+		Method:      echo.GET,
+		Path:        "/qctl/value/:id/default",
+		Category:    "qtcl",
+		Desc:        "Get value default for a parameter",
+		Version:     "v1",
+		Role:        "",
+		Permissions: []string{},
+		Handler:     handler,
 	}
 }
 
@@ -171,14 +171,14 @@ func (s *Service) SetValue(gtx context.Context) *httpx.Endpoint {
 	}
 
 	return &httpx.Endpoint{
-		Method:     echo.PUT,
-		Path:       "/qctl/value/:id",
-		Category:   "qtcl",
-		Desc:       "Set value for a parameter",
-		Version:    "v1",
-		Role:       "",
-		Permission: "",
-		Handler:    handler,
+		Method:      echo.PUT,
+		Path:        "/qctl/value/:id",
+		Category:    "qtcl",
+		Desc:        "Set value for a parameter",
+		Version:     "v1",
+		Role:        "",
+		Permissions: []string{},
+		Handler:     handler,
 	}
 }
 
@@ -215,13 +215,13 @@ func (s *Service) SetDefault(gtx context.Context) *httpx.Endpoint {
 	}
 
 	return &httpx.Endpoint{
-		Method:     echo.PUT,
-		Path:       "/qctl/value/:id/default",
-		Category:   "qtcl",
-		Desc:       "Set default value for a parameter",
-		Version:    "v1",
-		Role:       "",
-		Permission: "",
-		Handler:    handler,
+		Method:      echo.PUT,
+		Path:        "/qctl/value/:id/default",
+		Category:    "qtcl",
+		Desc:        "Set default value for a parameter",
+		Version:     "v1",
+		Role:        "",
+		Permissions: []string{},
+		Handler:     handler,
 	}
 }

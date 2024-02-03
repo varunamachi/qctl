@@ -8,14 +8,14 @@ import (
 type Type string
 
 const (
-	PtConstant  Type = "Constant"
-	PtBoolean   Type = "Boolean"
-	PtTristate  Type = "Tristate"
-	PtChoice    Type = "Choice"
-	PtNumber    Type = "Number"
-	PtRange     Type = "Range"
-	PtDate      Type = "Date"
-	PtDateRange Type = "DateRange"
+	PtConstant  Type = "constant"
+	PtBoolean   Type = "boolean"
+	PtTristate  Type = "tristate"
+	PtChoice    Type = "choice"
+	PtNumber    Type = "number"
+	PtRange     Type = "range"
+	PtDate      Type = "date"
+	PtDateRange Type = "dateRange"
 )
 
 type Tristate string
