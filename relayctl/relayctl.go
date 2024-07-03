@@ -97,7 +97,7 @@ func getClientTo(service, inShortName string) (<-chan ctlClientWrapper, error) {
 
 					hostAddr := fmt.Sprintf(
 						"http://%v:%d", entry.AddrV4, entry.Port)
-					client := httpx.New(hostAddr, "")
+					client := httpx.NewClient(hostAddr, "")
 					outChan <- ctlClientWrapper{client, ctl, nil}
 					return
 				}
