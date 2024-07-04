@@ -22,7 +22,7 @@ func (s *Service) Endpoints(gtx context.Context) []*httpx.Endpoint {
 func (s *Service) GetParamList(gtx context.Context) *httpx.Endpoint {
 
 	handler := func(etx echo.Context) error {
-		return etx.JSON(http.StatusOK, s.pg)
+		return httpx.SendJSON(etx, s.pg)
 	}
 
 	return &httpx.Endpoint{
