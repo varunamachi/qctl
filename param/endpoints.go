@@ -45,7 +45,7 @@ func (s *Service) GetValues(gtx context.Context) *httpx.Endpoint {
 		for id, op := range s.operators {
 			val, err := op.Get()
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 			vals[id] = val
 		}
@@ -80,7 +80,7 @@ func (s *Service) GetValue(gtx context.Context) *httpx.Endpoint {
 
 		val, err := op.Get()
 		if err != nil {
-			return err
+			return errx.Wrap(err)
 		}
 
 		return httpx.SendJSON(etx, data.M{
@@ -149,11 +149,11 @@ func (s *Service) SetValue(gtx context.Context) *httpx.Endpoint {
 
 		val, err := bindParamVal(etx, id, op.Type())
 		if err != nil {
-			return err
+			return errx.Wrap(err)
 		}
 
 		if err := op.Set(val); err != nil {
-			return err
+			return errx.Wrap(err)
 		}
 
 		// This is required if we are dealing data source which can succeed
@@ -161,7 +161,7 @@ func (s *Service) SetValue(gtx context.Context) *httpx.Endpoint {
 		val, err = op.Get()
 		if err != nil {
 			// TODO - check partial success here...
-			return err
+			return errx.Wrap(err)
 		}
 
 		return httpx.SendJSON(etx, data.M{
@@ -198,14 +198,14 @@ func (s *Service) SetDefault(gtx context.Context) *httpx.Endpoint {
 
 		if err := op.Set(op.Default()); err != nil {
 			// TODO - check partial success here...
-			return err
+			return errx.Wrap(err)
 		}
 
 		// This is required if we are dealing data source which can succeed
 		// partially
 		val, err := op.Get()
 		if err != nil {
-			return err
+			return errx.Wrap(err)
 		}
 
 		return httpx.SendJSON(etx, data.M{

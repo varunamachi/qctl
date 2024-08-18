@@ -47,7 +47,7 @@ func listControllersCmd() *cli.Command {
 			service := ctx.String("service")
 			ctls, err := discover(service)
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 			for ctl := range ctls {
 				fmt.Printf("%20s %40s %4d %20v\n",
@@ -83,7 +83,7 @@ func getStatesCmd() *cli.Command {
 		Action: func(ctx *cli.Context) error {
 			ch, err := getClientTo("_relayctl", ctx.String("ctlr"))
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 
 			cwrap := <-ch
@@ -123,7 +123,7 @@ func getDefaultStatesCmd() *cli.Command {
 		Action: func(ctx *cli.Context) error {
 			ch, err := getClientTo("_relayctl", ctx.String("ctlr"))
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 
 			cwrap := <-ch
@@ -174,7 +174,7 @@ func setStateCmd() *cli.Command {
 
 			ch, err := getClientTo("_relayctl", ctx.String("ctlr"))
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 
 			cw := <-ch
@@ -218,7 +218,7 @@ func setAllStatesCmd() *cli.Command {
 
 			ch, err := getClientTo("_relayctl", ctx.String("ctlr"))
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 
 			cw := <-ch
@@ -270,7 +270,7 @@ func setDefaultStateCmd() *cli.Command {
 
 			ch, err := getClientTo("_relayctl", ctx.String("ctlr"))
 			if err != nil {
-				return err
+				return errx.Wrap(err)
 			}
 
 			cw := <-ch
